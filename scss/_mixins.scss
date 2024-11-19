@@ -1,0 +1,46 @@
+.example {
+display: grid;
+transition: all .5s;
+background: linear-gradient(to bottom, white, black);
+}
+
+@mixin flex-center($gap: 0px) {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: $gap;
+}
+
+@mixin flex-betweenCenter {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+@mixin grid-ColumnsEqually($columns, $gap: 0px) {
+display: grid;
+grid-template-columns: repeat($columns, 1fr);
+gap: $gap;
+}
+
+@mixin grid-ColumnsValue($columns, $value, $gap: 0px) {
+display: grid;
+grid-template-columns: repeat($columns, $value);
+gap: $gap;
+}
+
+@mixin hide-scrollbar {
+scrollbar-width: none;
+}
+
+@mixin transitionEaseInOut {
+transition: all 0.3s ease-in-out;
+}
+
+@mixin transitionEase {
+transition: all 0.5s ease;
+}
+
+@mixin transform-center {
+transform: translate(-50%, -50%);
+}
