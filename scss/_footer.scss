@@ -2,7 +2,6 @@
   padding: 64px 0 50px 0;
   border-radius: 40px 40px 0 0;
   background-color: #292929;
-  flex: 0 0 auto;
 
   &__content {
 
@@ -71,12 +70,10 @@
                 pointer-events: none;
                 transition: all 0.5s ease;
 
-
                 &.active {
                   visibility: visible;
                   opacity: 1;
                   pointer-events: all;
-                  z-index: 1;
                 }
 
                 &__item {

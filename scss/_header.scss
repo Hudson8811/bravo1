@@ -221,7 +221,7 @@
     @include transitionEaseInOut;
 
     &.active {
-      background-color: var(--white);
+      height: 100vh;
     }
 
     &-mobile {
@@ -240,7 +240,7 @@
       flex-direction: column;
       align-items: flex-start;
       padding: 0 15px;
-      min-height: 100%;
+      height: 90vh;
       background-color: var(--white);
       @include transitionEase;
 

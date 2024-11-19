@@ -8,163 +8,164 @@
 </head>
 <body class="seryy">
 
- <div class="preloader" id="preloader">
+  <div class="preloader" id="preloader">
     <div class="preloader__content">
       <svg width="374" height="73" viewBox="0 0 374 73" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="gradient" x1="0%" y1="100%" x2="0%" y2="0%">
-            <stop offset="0%" stop-color="#131313"/>
-            <stop offset="100%" stop-color="#E4E4E4"/>
+            <stop offset="0%" stop-color="#131313">
+              <animate
+                attributeName="offset"
+                values="0; 1"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="0%" stop-color="#E4E4E4">
+              <animate
+                attributeName="offset"
+                values="0; 1"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </stop>
           </linearGradient>
         </defs>
+
         <path d="M198.002 48.1809L183.376 15.9075L169.136 48.1809H198.002ZM175.975 0.953125H190.514L223.231 71.9976H208.82L203.409 60.0424H163.894L158.658 71.9976H144.203L175.971 0.953125H175.975Z" fill="url(#gradient)" />
         <path d="M217.551 0.953125H232.743L253.989 55.1362L275.242 0.953125H290.43L260.787 72.001H247.198L217.551 0.953125Z" fill="url(#gradient)" />
         <path d="M310.34 36.2746C310.34 39.9395 310.968 43.2439 312.22 46.1841C313.476 49.1244 315.221 51.6312 317.46 53.7081C319.694 55.785 322.334 57.3834 325.379 58.5033C328.424 59.6232 331.735 60.1849 335.31 60.1849C338.884 60.1849 342.199 59.6232 345.241 58.5033C348.286 57.3799 350.918 55.7815 353.138 53.7081C355.362 51.6312 357.107 49.1244 358.377 46.1841C359.644 43.2439 360.283 39.943 360.283 36.2746C360.283 32.6063 359.648 29.3193 358.377 26.4102C357.107 23.5012 355.362 21.0394 353.138 19.0249C350.918 17.0105 348.286 15.471 345.241 14.41C342.199 13.3525 338.888 12.8185 335.31 12.8185C331.732 12.8185 328.424 13.349 325.379 14.41C322.334 15.471 319.694 17.007 317.46 19.0249C315.225 21.0394 313.476 23.5012 312.22 26.4102C310.968 29.3193 310.34 32.6063 310.34 36.2746ZM296.619 36.2746C296.619 30.9108 297.557 26.0011 299.434 21.5456C301.307 17.0902 303.943 13.2658 307.331 10.0655C310.72 6.86867 314.791 4.39304 319.537 2.63513C324.283 0.87722 329.541 0 335.31 0C341.079 0 346.303 0.87722 351.064 2.63513C355.825 4.39304 359.9 6.86867 363.292 10.0655C366.68 13.2658 369.312 17.0902 371.189 21.5456C373.062 26.0011 374 30.9108 374 36.2746C374 41.6385 373.062 46.614 371.189 51.1146C369.312 55.6151 366.68 59.488 363.292 62.7265C359.9 65.9718 355.825 68.4925 351.064 70.2955C346.303 72.0985 341.053 73 335.31 73C329.567 73 324.283 72.0985 319.537 70.2955C314.791 68.4925 310.72 65.9718 307.331 62.7265C303.943 59.4846 301.307 55.6151 299.434 51.1146C297.557 46.614 296.619 41.6662 296.619 36.2746Z" fill="url(#gradient)" />
+        <path d="M128.238 45.3862C130.144 43.826 131.721 42.0438 132.977 40.0466C134.229 38.046 135.16 35.8547 135.766 33.4796C136.372 31.0976 136.675 28.5942 136.675 25.9556C136.675 22.048 136.066 18.5461 134.839 15.4567C133.612 12.3639 131.743 9.74267 129.234 7.59296C126.722 5.43978 123.564 3.79629 119.753 2.65902C115.944 1.52176 111.443 0.953125 106.251 0.953125H74.9316V72.0011H88.6525V13.5012H106.598C111.819 13.5012 115.729 14.583 118.329 16.75C120.924 18.9171 122.221 21.9856 122.221 25.9522C122.221 27.984 121.899 29.8251 121.246 31.4755C120.6 33.126 119.617 34.5302 118.303 35.6813C116.989 36.8325 115.36 37.727 113.414 38.365C111.465 39.003 109.194 39.322 106.598 39.322H98.7003L106.729 51.8215L119.453 72.0045H136.245L121.531 49.2765C124.101 48.2467 126.335 46.95 128.238 45.3897" fill="url(#gradient)" />
+        <path d="M51.0679 31.1496C51.0679 31.1496 51.3308 30.7647 51.7032 30.0817C52.8971 27.9979 53.6419 26.0666 53.9267 23.8094C54.6314 20.0162 54.394 15.1551 51.1007 10.2211C49.9506 8.32455 48.4756 6.64639 46.6647 5.25948C46.6537 5.24908 46.6427 5.23868 46.6281 5.22827C43.1231 2.56541 38.3876 0.97393 32.44 0.97393L0.116827 0.953125H0V72.1085H40.0197C52.3786 72.112 62.0248 62.5111 62.4338 50.7224C62.6893 43.3891 60.3526 35.352 51.0642 31.1496H51.0679ZM40.0197 59.2033H15.079V13.8861H32.4436C36.8688 13.8861 40.4687 17.3048 40.4687 21.5071V21.7082C40.4687 24.0105 39.4793 25.602 37.6793 27.4708L25.2875 39.4225H40.0197C45.3758 39.4225 48.8407 44.0756 48.8407 49.228C48.8407 54.3804 45.5438 59.2033 40.0197 59.2033Z" fill="url(#gradient)" />
       </svg>
     </div>
-</div>
+  </div>
 
   <header class="header" id="header">
-  <div class="container">
-    <div class="header-mobile">
-      <a href="#" class="header-mobile__logo">
-        <img src="./img/header/header-logo-mobile.svg" alt="logo">
-      </a>
-      <button class="header-mobile__btn" id="header-mobile-menu-open">
-        <svg width="29" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line y1="1.20703" x2="20" y2="1.20703" stroke="black" stroke-width="1.5"/>
-          <line y1="7.45703" x2="13.75" y2="7.45703" stroke="black" stroke-width="1.5"/>
-          <line y1="13.707" x2="20" y2="13.707" stroke="black" stroke-width="1.5"/>
-          </svg>
-      </button>
-    </div>
-    <div class="header__content" id="header-content">
-      <div class="header__content-mobile">
-        <a href="#" class="header__content-mobile__logo">
+    <div class="container">
+      <div class="header-mobile">
+        <a href="#" class="header-mobile__logo">
           <img src="./img/header/header-logo-mobile.svg" alt="logo">
         </a>
-        <button class="header__content-mobile__btn" id="header-mobile-menu-close">
-          <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="1.32709" y1="15.3994" x2="15.4692" y2="1.25722" stroke="black" stroke-width="1.5"/>
-            <line x1="1.45904" y1="1.32807" x2="15.6012" y2="15.4702" stroke="black" stroke-width="1.5"/>
-          </svg>
+        <button class="header-mobile__btn" id="header-mobile-menu-open">
+          <svg width="29" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="1.20703" x2="20" y2="1.20703" stroke="black" stroke-width="1.5"/>
+            <line y1="7.45703" x2="13.75" y2="7.45703" stroke="black" stroke-width="1.5"/>
+            <line y1="13.707" x2="20" y2="13.707" stroke="black" stroke-width="1.5"/>
+            </svg>
         </button>
       </div>
-      <a href="#" class="header__content-logo">
-        <img src="./img/header/header-logo.svg" alt="logo">
-      </a>
-      <nav class="header__content-nav">
-        <ul class="header__content-nav__list">
-          <li class="header__content-nav__list-item object">
-            <button class="object-btn" id="object-btn">
-              Объекты
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1.5L6 6.5L11 1.5" stroke="#282E36" stroke-width="1.5" stroke-linejoin="bevel" />
-              </svg>
-            </button>
-            <ul class="object-list" id="object-list">
-              <li class="object-list__item">
-                <a href="#"> Ссылка 1 </a>
-              </li>
-              <li class="object-list__item">
-                <a href="#"> Ссылка 2 </a>
-              </li>
-            </ul>
-          </li>
-          <li class="header__content-nav__list-item object">
-            <button class="object-btn">
-              Недвижимость
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1.5L6 6.5L11 1.5" stroke="#282E36" stroke-width="1.5" stroke-linejoin="bevel" />
-              </svg>
-            </button>
-            <ul class="object-list">
-              <li class="object-list__item">
-                <a href="#"> Ссылка 1 </a>
-              </li>
-              <li class="object-list__item">
-                <a href="#"> Ссылка 2 </a>
-              </li>
-            </ul>
-          </li>
-          <li class="header__content-nav__list-item">
-            <a href="#">
-              Акции и новости
-            </a>
-          </li>
-          <li class="header__content-nav__list-item">
-            <a href="#">
-              Контакты
-            </a>
-          </li>
-          <li class="header__content-nav__list-item menu">
-            <button class="btn-global" id="header-menu-btn">
-              Меню
-              <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line y1="0.966406" x2="16" y2="0.966406" stroke="black" stroke-width="1.2"/>
-                <line y1="5.96641" x2="11" y2="5.96641" stroke="black" stroke-width="1.2"/>
-                <line y1="10.9664" x2="16" y2="10.9664" stroke="black" stroke-width="1.2"/>
-              </svg>
-            </button>
-          </li>
-          <li class="header__content-nav__list-item mobile">
-            <a href="#">
-              Контакты
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="header__content-tel">
-        <a href="tel:+78006003322">
-          8 800 600 33 22
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13.8573 11.5757L14.2373 11.1982L13.3548 10.3116L12.9765 10.6891L13.8573 11.5757ZM15.5115 11.0399L17.104 11.9057L17.6998 10.8074L16.1082 9.94238L15.5115 11.0399ZM17.4098 13.6257L16.2265 14.8032L17.1073 15.6891L18.2907 14.5124L17.4098 13.6257ZM15.5048 15.1816C14.2965 15.2949 11.1715 15.1941 7.78649 11.8291L6.90482 12.7149C10.5982 16.3874 14.114 16.5674 15.6215 16.4266L15.5048 15.1816ZM7.78649 11.8291C4.56065 8.62072 4.02565 5.92322 3.95899 4.75239L2.71065 4.82322C2.79399 6.29655 3.45649 9.28655 6.90482 12.7149L7.78649 11.8291ZM8.93232 6.67905L9.17149 6.44072L8.29149 5.55488L8.05232 5.79239L8.93232 6.67905ZM9.36149 3.41155L8.31149 2.00822L7.31065 2.75822L8.36065 4.16072L9.36149 3.41155ZM4.77732 1.70239L3.46899 3.00239L4.35065 3.88905L5.65815 2.58905L4.77732 1.70239ZM8.49232 6.23572C8.05065 5.79239 8.05065 5.79239 8.05065 5.79405H8.04899L8.04649 5.79738C8.00688 5.83731 7.97143 5.88115 7.94065 5.92822C7.89565 5.99488 7.84649 6.08239 7.80482 6.19322C7.70338 6.47932 7.67811 6.78689 7.73149 7.08572C7.84315 7.80655 8.33982 8.75905 9.61149 10.0241L10.4932 9.13739C9.30232 7.95405 9.01899 7.23405 8.96649 6.89405C8.94149 6.73238 8.96732 6.65239 8.97482 6.63405C8.97982 6.62294 8.97982 6.62127 8.97482 6.62905C8.96739 6.64055 8.95903 6.65142 8.94982 6.66155L8.94149 6.66988L8.93315 6.67738L8.49232 6.23572ZM9.61149 10.0241C10.884 11.2891 11.8415 11.7824 12.5632 11.8924C12.9323 11.9491 13.2298 11.9041 13.4557 11.8199C13.5822 11.7736 13.7003 11.7072 13.8057 11.6232L13.8473 11.5857L13.8532 11.5807L13.8557 11.5782L13.8565 11.5766C13.8565 11.5766 13.8573 11.5757 13.4165 11.1324C12.9748 10.6891 12.9773 10.6882 12.9773 10.6882L12.979 10.6866L12.9807 10.6849L12.9857 10.6807L12.994 10.6724L13.0257 10.6474C13.0334 10.6424 13.0315 10.6429 13.0198 10.6491C12.999 10.6566 12.9173 10.6824 12.7532 10.6574C12.4082 10.6041 11.6832 10.3207 10.4932 9.13739L9.61149 10.0241ZM8.31149 2.00739C7.46149 0.874052 5.79149 0.694052 4.77732 1.70239L5.65815 2.58905C6.10149 2.14822 6.88815 2.19405 7.31065 2.75822L8.31149 2.00739ZM3.95982 4.75322C3.94315 4.46489 4.07565 4.16322 4.35065 3.88989L3.46815 3.00322C3.02065 3.44822 2.66815 4.07822 2.71065 4.82322L3.95982 4.75322ZM16.2265 14.8032C15.9982 15.0316 15.7515 15.1599 15.5057 15.1824L15.6215 16.4266C16.234 16.3691 16.7348 16.0607 17.1082 15.6899L16.2265 14.8032ZM9.17149 6.44072C9.99232 5.62489 10.0532 4.33572 9.36232 3.41238L8.36149 4.16155C8.69732 4.61072 8.64732 5.19988 8.29065 5.55572L9.17149 6.44072ZM17.1048 11.9066C17.7857 12.2766 17.8915 13.1482 17.4107 13.6266L18.2923 14.5124C19.409 13.4016 19.0648 11.5491 17.7007 10.8082L17.1048 11.9066ZM14.2373 11.1991C14.5573 10.8807 15.0723 10.8024 15.5123 11.0407L16.109 9.94322C15.2057 9.45155 14.0857 9.58739 13.3557 10.3124L14.2373 11.1991Z" fill="black" />
-          </svg>
+      <div class="header__content" id="header-content">
+        <div class="header__content-mobile">
+          <a href="#" class="header__content-mobile__logo">
+            <img src="./img/header/header-logo-mobile.svg" alt="logo">
+          </a>
+          <button class="header__content-mobile__btn" id="header-mobile-menu-close">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="1.32709" y1="15.3994" x2="15.4692" y2="1.25722" stroke="black" stroke-width="1.5"/>
+              <line x1="1.45904" y1="1.32807" x2="15.6012" y2="15.4702" stroke="black" stroke-width="1.5"/>
+            </svg>
+          </button>
+        </div>
+        <a href="#" class="header__content-logo">
+          <img src="./img/header/header-logo.svg" alt="logo">
         </a>
+        <nav class="header__content-nav">
+          <ul class="header__content-nav__list">
+            <li class="header__content-nav__list-item object">
+              <button id="object-btn">
+                Объекты
+                <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1.5L6 6.5L11 1.5" stroke="#282E36" stroke-width="1.5" stroke-linejoin="bevel" />
+                </svg>
+              </button>
+              <ul class="object-list" id="object-list">
+                <li class="object-list__item">
+                  <a href="#"> Ссылка 1 </a>
+                </li>
+                <li class="object-list__item">
+                  <a href="#"> Ссылка 2 </a>
+                </li>
+              </ul>
+            </li>
+            <li class="header__content-nav__list-item">
+              <a href="#">
+                Акции и новости
+              </a>
+            </li>
+            <li class="header__content-nav__list-item">
+              <a href="#">
+                Контакты
+              </a>
+            </li>
+            <li class="header__content-nav__list-item menu">
+              <button class="btn-global" id="header-menu-btn">
+                Меню
+                <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line y1="0.966406" x2="16" y2="0.966406" stroke="black" stroke-width="1.2"/>
+                  <line y1="5.96641" x2="11" y2="5.96641" stroke="black" stroke-width="1.2"/>
+                  <line y1="10.9664" x2="16" y2="10.9664" stroke="black" stroke-width="1.2"/>
+                </svg>
+              </button>
+            </li>
+            <li class="header__content-nav__list-item mobile">
+              <a href="#">
+                Контакты
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__content-tel">
+          <a href="tel:+78006003322">
+            8 800 600 33 22
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.8573 11.5757L14.2373 11.1982L13.3548 10.3116L12.9765 10.6891L13.8573 11.5757ZM15.5115 11.0399L17.104 11.9057L17.6998 10.8074L16.1082 9.94238L15.5115 11.0399ZM17.4098 13.6257L16.2265 14.8032L17.1073 15.6891L18.2907 14.5124L17.4098 13.6257ZM15.5048 15.1816C14.2965 15.2949 11.1715 15.1941 7.78649 11.8291L6.90482 12.7149C10.5982 16.3874 14.114 16.5674 15.6215 16.4266L15.5048 15.1816ZM7.78649 11.8291C4.56065 8.62072 4.02565 5.92322 3.95899 4.75239L2.71065 4.82322C2.79399 6.29655 3.45649 9.28655 6.90482 12.7149L7.78649 11.8291ZM8.93232 6.67905L9.17149 6.44072L8.29149 5.55488L8.05232 5.79239L8.93232 6.67905ZM9.36149 3.41155L8.31149 2.00822L7.31065 2.75822L8.36065 4.16072L9.36149 3.41155ZM4.77732 1.70239L3.46899 3.00239L4.35065 3.88905L5.65815 2.58905L4.77732 1.70239ZM8.49232 6.23572C8.05065 5.79239 8.05065 5.79239 8.05065 5.79405H8.04899L8.04649 5.79738C8.00688 5.83731 7.97143 5.88115 7.94065 5.92822C7.89565 5.99488 7.84649 6.08239 7.80482 6.19322C7.70338 6.47932 7.67811 6.78689 7.73149 7.08572C7.84315 7.80655 8.33982 8.75905 9.61149 10.0241L10.4932 9.13739C9.30232 7.95405 9.01899 7.23405 8.96649 6.89405C8.94149 6.73238 8.96732 6.65239 8.97482 6.63405C8.97982 6.62294 8.97982 6.62127 8.97482 6.62905C8.96739 6.64055 8.95903 6.65142 8.94982 6.66155L8.94149 6.66988L8.93315 6.67738L8.49232 6.23572ZM9.61149 10.0241C10.884 11.2891 11.8415 11.7824 12.5632 11.8924C12.9323 11.9491 13.2298 11.9041 13.4557 11.8199C13.5822 11.7736 13.7003 11.7072 13.8057 11.6232L13.8473 11.5857L13.8532 11.5807L13.8557 11.5782L13.8565 11.5766C13.8565 11.5766 13.8573 11.5757 13.4165 11.1324C12.9748 10.6891 12.9773 10.6882 12.9773 10.6882L12.979 10.6866L12.9807 10.6849L12.9857 10.6807L12.994 10.6724L13.0257 10.6474C13.0334 10.6424 13.0315 10.6429 13.0198 10.6491C12.999 10.6566 12.9173 10.6824 12.7532 10.6574C12.4082 10.6041 11.6832 10.3207 10.4932 9.13739L9.61149 10.0241ZM8.31149 2.00739C7.46149 0.874052 5.79149 0.694052 4.77732 1.70239L5.65815 2.58905C6.10149 2.14822 6.88815 2.19405 7.31065 2.75822L8.31149 2.00739ZM3.95982 4.75322C3.94315 4.46489 4.07565 4.16322 4.35065 3.88989L3.46815 3.00322C3.02065 3.44822 2.66815 4.07822 2.71065 4.82322L3.95982 4.75322ZM16.2265 14.8032C15.9982 15.0316 15.7515 15.1599 15.5057 15.1824L15.6215 16.4266C16.234 16.3691 16.7348 16.0607 17.1082 15.6899L16.2265 14.8032ZM9.17149 6.44072C9.99232 5.62489 10.0532 4.33572 9.36232 3.41238L8.36149 4.16155C8.69732 4.61072 8.64732 5.19988 8.29065 5.55572L9.17149 6.44072ZM17.1048 11.9066C17.7857 12.2766 17.8915 13.1482 17.4107 13.6266L18.2923 14.5124C19.409 13.4016 19.0648 11.5491 17.7007 10.8082L17.1048 11.9066ZM14.2373 11.1991C14.5573 10.8807 15.0723 10.8024 15.5123 11.0407L16.109 9.94322C15.2057 9.45155 14.0857 9.58739 13.3557 10.3124L14.2373 11.1991Z" fill="black" />
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="header-menu" id="header-menu">
-    <div class="container">
-      <div class="header-menu__content" id="header-menu-content">
-        <ul class="header-menu__content-list">
-          <li class="header-menu__content-list__item">
-            <h3>
-              Компания
-            </h3>
-          </li>
-          <li class="header-menu__content-list__item">
-            <a href="#">
-              О застройщике
-            </a>
-          </li>
-          <li class="header-menu__content-list__item">
-            <a href="#">
-              Контакты
-            </a>
-          </li>
-        </ul>
-        <ul class="header-menu__content-list">
-          <li class="header-menu__content-list__item">
-            <h3>
-              События
-            </h3>
-          </li>
-          <li class="header-menu__content-list__item">
-            <a href="#">
-              Акции
-            </a>
-          </li>
-          <li class="header-menu__content-list__item">
-            <a href="#">
-              Новости
-            </a>
-          </li>
-        </ul>
+    <div class="header-menu" id="header-menu">
+      <div class="container">
+        <div class="header-menu__content" id="header-menu-content">
+          <ul class="header-menu__content-list">
+            <li class="header-menu__content-list__item">
+              <h3>
+                Компания
+              </h3>
+            </li>
+            <li class="header-menu__content-list__item">
+              <a href="#">
+                О застройщике
+              </a>
+            </li>
+            <li class="header-menu__content-list__item">
+              <a href="#">
+                Контакты
+              </a>
+            </li>
+          </ul>
+          <ul class="header-menu__content-list">
+            <li class="header-menu__content-list__item">
+              <h3>
+                События
+              </h3>
+            </li>
+            <li class="header-menu__content-list__item">
+              <a href="#">
+                Акции
+              </a>
+            </li>
+            <li class="header-menu__content-list__item">
+              <a href="#">
+                Новости
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
   </header>
 
   <main>
@@ -338,7 +339,7 @@
           <nav class="footer__content-top__nav">
             <ul class="footer__content-top__nav-list">
               <li class="footer__content-top__nav-list__item object">
-                <button class="footer-object-btn" id="footer-object-btn">
+                <button id="footer-object-btn">
                   Объекты
                   <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1.5L6 6.5L11 1.5" stroke="white" stroke-width="1.5" stroke-linejoin="bevel" />
@@ -358,27 +359,6 @@
                   О компании
                 </a>
               </li>
-              <li class="footer__content-top__nav-list__item object">
-                <button class="footer-object-btn">
-                  Недвижимость
-                  <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1.5L6 6.5L11 1.5" stroke="white" stroke-width="1.5" stroke-linejoin="bevel" />
-                  </svg>
-                </button>
-                <ul class="object-list">
-                  <li class="object-list__item">
-                    <a href="#"> Ссылка 1 </a>
-                  </li>
-                  <li class="object-list__item">
-                    <a href="#"> Ссылка 2 </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer__content-top__nav-list__item">
-                <a href="#">
-                  Акции
-                </a>
-              </li>
               <li class="footer__content-top__nav-list__item">
                 <a href="#">
                   Акции и новости
@@ -386,7 +366,7 @@
               </li>
               <li class="footer__content-top__nav-list__item">
                 <a href="#">
-                  Способы покупки
+                  Контакты
                 </a>
               </li>
             </ul>

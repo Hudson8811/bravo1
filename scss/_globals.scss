@@ -14,15 +14,8 @@ html {
   box-sizing: inherit;
 }
 
-main {
-  flex: 1 0 auto;
-}
-
 body {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   font-family: var(--font-family);
 
   &.white {
@@ -195,7 +188,6 @@ button {
 
 @media (max-width: 768px) {
   .section-title {
-    letter-spacing: 0px;
     font-weight: 300;
     font-size: 24px;
   }

@@ -1,21 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const body = document.body;
-  const preloader = document.getElementById('preloader');
 
-  // Блокируем прокрутку на начальном этапе
+document.addEventListener('DOMContentLoaded', function() {
+  // Переменная для удобного обращения к body
+  const body = document.body;
+
+  // Отключаем прокрутку
   body.style.overflow = 'hidden';
 
   // После полной загрузки страницы
   window.addEventListener('load', function() {
+    // Скрываем прелоадер
+    document.getElementById('preloader').classList.add('hidden');
 
-    setTimeout(() => {
-      preloader.classList.add('hidden');
-    }, 1000); // Время совпадает с анимацией fade-out
-
-    // Восстанавливаем прокрутку после задержки скрытия прелоадера
-    setTimeout(() => {
-      body.style.overflow = '';
-    }, 1000);
+    // Включаем прокрутку, сбрасывая стиль overflow
+    body.style.overflow = '';
   });
 });
 
@@ -64,25 +61,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-  const objectBtns = document.querySelectorAll('.object-btn');
-  const objectLists = document.querySelectorAll('.header__content-nav__list-item .object-list');
+  const objectBtn = document.getElementById('object-btn');
+  const objectList = document.getElementById('object-list');
 
   // Функция переключения класса active
-  function toggleActive(button, list) {
-      list.classList.toggle('active');
-      button.classList.toggle('active');
+  function toggleActive() {
+      objectList.classList.toggle('active');
+      objectBtn.classList.toggle('active');
   }
 
   // Функция добавления класса active
-  function addActive(button, list) {
-      list.classList.add('active');
-      button.classList.add('active');
+  function addActive() {
+      objectList.classList.add('active');
+      objectBtn.classList.add('active');
   }
 
   // Функция удаления класса active
-  function removeActive(button, list) {
-      list.classList.remove('active');
-      button.classList.remove('active');
+  function removeActive() {
+      objectList.classList.remove('active');
+      objectBtn.classList.remove('active');
   }
 
   // Проверка ширины экрана
@@ -90,46 +87,34 @@ document.addEventListener('DOMContentLoaded', function () {
       return window.innerWidth <= 768;
   }
 
-  // Добавление обработчиков событий для всех кнопок
+  // Добавление обработчиков событий в зависимости от ширины экрана
   function updateEventListeners() {
-      objectBtns.forEach((button, index) => {
-          const list = objectLists[index]; // предполагается, что порядок кнопок и списков совпадает
+      if (isMobileScreen()) {
+          // На мобильных устройствах добавляем класс по клику
+          objectBtn.addEventListener('click', handleClick);
+          objectBtn.removeEventListener('mouseenter', addActive);
+      } else {
+          // На десктопах добавляем класс по наведению
+          objectBtn.removeEventListener('click', handleClick);
+          objectBtn.addEventListener('mouseenter', addActive);
+      }
+  }
 
-          if (isMobileScreen()) {
-              // На мобильных устройствах добавляем класс по клику
-              button.addEventListener('click', function(event) {
-                  event.stopPropagation(); // Останавливаем всплытие события
-                  toggleActive(button, list);
-              });
-              button.removeEventListener('mouseenter', function() { addActive(button, list); });
-          } else {
-              // На десктопах добавляем класс по наведению
-              button.removeEventListener('click', function(event) {
-                  event.stopPropagation(); // Останавливаем всплытие события
-                  toggleActive(button, list);
-              });
-              button.addEventListener('mouseenter', function() { addActive(button, list); });
-          }
-      });
+  // Обработчик клика на кнопку
+  function handleClick(event) {
+      event.stopPropagation(); // Останавливаем всплытие события
+      toggleActive();
   }
 
   // Удаление класса active при клике вне блока object-list
   document.addEventListener('click', function (event) {
-      objectLists.forEach((list, index) => {
-          const button = objectBtns[index];
-          if (!list.contains(event.target) && !button.contains(event.target)) {
-              removeActive(button, list);
-          }
-      });
+      if (!objectList.contains(event.target) && !objectBtn.contains(event.target)) {
+          removeActive();
+      }
   });
 
   // Удаление класса active, если курсор покинул блок object-list
-  objectLists.forEach((list, index) => {
-      const button = objectBtns[index];
-      list.addEventListener('mouseleave', function() {
-          removeActive(button, list);
-      });
-  });
+  objectList.addEventListener('mouseleave', removeActive);
 
   // Добавляем или обновляем обработчики событий при загрузке и изменении размера экрана
   updateEventListeners();
@@ -183,25 +168,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* footer - открытие меню с объектами */
 document.addEventListener('DOMContentLoaded', function () {
-  const objectBtns = document.querySelectorAll('.footer-object-btn');
-  const objectLists = document.querySelectorAll('.footer__content-top__nav-list__item .object-list');
+  const objectBtn = document.getElementById('footer-object-btn');
+  const objectList = document.getElementById('footer-object-list');
 
   // Функция переключения класса active
-  function toggleActive(button, list) {
-      list.classList.toggle('active');
-      button.classList.toggle('active');
+  function toggleActive() {
+      objectList.classList.toggle('active');
+      objectBtn.classList.toggle('active');
   }
 
   // Функция добавления класса active
-  function addActive(button, list) {
-      list.classList.add('active');
-      button.classList.add('active');
+  function addActive() {
+      objectList.classList.add('active');
+      objectBtn.classList.add('active');
   }
 
   // Функция удаления класса active
-  function removeActive(button, list) {
-      list.classList.remove('active');
-      button.classList.remove('active');
+  function removeActive() {
+      objectList.classList.remove('active');
+      objectBtn.classList.remove('active');
   }
 
   // Проверка ширины экрана
@@ -209,214 +194,39 @@ document.addEventListener('DOMContentLoaded', function () {
       return window.innerWidth <= 768;
   }
 
-  // Добавление обработчиков событий для всех кнопок
+  // Добавление обработчиков событий в зависимости от ширины экрана
   function updateEventListeners() {
-      objectBtns.forEach((button, index) => {
-          const list = objectLists[index]; // предполагается, что порядок кнопок и списков совпадает
+      if (isMobileScreen()) {
+          // На мобильных устройствах добавляем класс по клику
+          objectBtn.addEventListener('click', handleClick);
+          objectBtn.removeEventListener('mouseenter', addActive);
+      } else {
+          // На десктопах добавляем класс по наведению
+          objectBtn.removeEventListener('click', handleClick);
+          objectBtn.addEventListener('mouseenter', addActive);
+      }
+  }
 
-          if (isMobileScreen()) {
-              // На мобильных устройствах добавляем класс по клику
-              button.addEventListener('click', function(event) {
-                  event.stopPropagation(); // Останавливаем всплытие события
-                  toggleActive(button, list);
-              });
-              button.removeEventListener('mouseenter', function() { addActive(button, list); });
-          } else {
-              // На десктопах добавляем класс по наведению
-              button.removeEventListener('click', function(event) {
-                  event.stopPropagation(); // Останавливаем всплытие события
-                  toggleActive(button, list);
-              });
-              button.addEventListener('mouseenter', function() { addActive(button, list); });
-          }
-      });
+  // Обработчик клика на кнопку
+  function handleClick(event) {
+      event.stopPropagation(); // Останавливаем всплытие события
+      toggleActive();
   }
 
   // Удаление класса active при клике вне блока object-list
   document.addEventListener('click', function (event) {
-      objectLists.forEach((list, index) => {
-          const button = objectBtns[index];
-          if (!list.contains(event.target) && !button.contains(event.target)) {
-              removeActive(button, list);
-          }
-      });
+      if (!objectList.contains(event.target) && !objectBtn.contains(event.target)) {
+          removeActive();
+      }
   });
 
   // Удаление класса active, если курсор покинул блок object-list
-  objectLists.forEach((list, index) => {
-      const button = objectBtns[index];
-      list.addEventListener('mouseleave', function() {
-          removeActive(button, list);
-      });
-  });
+  objectList.addEventListener('mouseleave', removeActive);
 
   // Добавляем или обновляем обработчики событий при загрузке и изменении размера экрана
   updateEventListeners();
   window.addEventListener('resize', updateEventListeners);
 });
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  const popUp = document.querySelector(".pop-up-callback");
-  const closeButton = document.getElementById("pop-up-callback-close");
-
-  function openPopUp() {
-    popUp.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closePopUp() {
-    popUp.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  document.getElementById("pop-up-callback-open").addEventListener("click", openPopUp);
-
-  closeButton.addEventListener("click", closePopUp);
-
-  const openButtons = document.querySelectorAll(".pop-up-callback-open");
-  openButtons.forEach(button => button.addEventListener("click", openPopUp));
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Инициализация слайдера
-  function initializeSlider(block) {
-    const minInput = block.querySelector('.min-input');
-    const maxInput = block.querySelector('.max-input');
-    const minSlider = block.querySelector('.min-slider');
-    const maxSlider = block.querySelector('.max-slider');
-    const track = block.querySelector('.slider__blocks-container__track');
-    const minPrice = parseInt(block.querySelector('.slider__blocks-container').dataset.minPrice);
-    const maxPrice = parseInt(block.querySelector('.slider__blocks-container').dataset.maxPrice);
-    const minGap = 1;
-
-    function updateTrack() {
-      const percentMin = ((minSlider.value - minPrice) / (maxPrice - minPrice)) * 100;
-      const percentMax = ((maxSlider.value - minPrice) / (maxPrice - minPrice)) * 100;
-      track.style.left = `${percentMin}%`;
-      track.style.right = `${100 - percentMax}%`;
-    }
-
-    function syncSliders() {
-      if (maxSlider.value - minSlider.value < minGap) {
-        if (this === minSlider) minSlider.value = maxSlider.value - minGap;
-        else maxSlider.value = minSlider.value + minGap;
-      }
-      minInput.value = minSlider.value;
-      maxInput.value = maxSlider.value;
-      updateTrack();
-    }
-
-    function syncInputs() {
-      let minValue = parseInt(minInput.value) || minPrice;
-      let maxValue = parseInt(maxInput.value) || maxPrice;
-
-      if (minValue < minPrice) minValue = minPrice;
-      if (minValue > maxSlider.value - minGap) minValue = maxSlider.value - minGap;
-
-      if (maxValue > maxPrice) maxValue = maxPrice;
-      if (maxValue < minSlider.value + minGap) maxValue = minSlider.value + minGap;
-
-      minSlider.value = minValue;
-      maxSlider.value = maxValue;
-      updateTrack();
-    }
-
-    minSlider.addEventListener('input', syncSliders);
-    maxSlider.addEventListener('input', syncSliders);
-    minInput.addEventListener('input', syncInputs);
-    maxInput.addEventListener('input', syncInputs);
-    updateTrack();
-  }
-
-  // Инициализация селектов
-  function initializeSelect(select) {
-    const selectDescr = select.querySelector('.select-descr');
-    const choices = select.querySelectorAll('.select-blocks__choise');
-
-    select.addEventListener('click', (event) => {
-      if (!event.target.closest('.select-blocks__choise')) {
-        document.querySelectorAll('.filter__content-blocks__fields-block.select.active')
-          .forEach(s => s.classList.remove('active'));
-        select.classList.toggle('active');
-      }
-    });
-
-    choices.forEach(choice => {
-      choice.addEventListener('click', () => {
-        selectDescr.textContent = choice.textContent;
-        select.classList.remove('active');
-      });
-    });
-  }
-
-  // Инициализация кнопки "Ещё"
-  function initializeShowMore(labels, button, visibleCount) {
-    let allLabelsVisible = false;
-
-    function updateLabels() {
-      labels.forEach((label, index) => label.style.display = allLabelsVisible || index < visibleCount ? 'block' : 'none');
-      button.textContent = allLabelsVisible
-        ? 'Скрыть'
-        : `Ещё ${labels.length - visibleCount} преимуществ`;
-    }
-
-    button.addEventListener('click', () => {
-      allLabelsVisible = !allLabelsVisible;
-      updateLabels();
-    });
-
-    updateLabels();
-  }
-
-  // Инициализация кнопки сброса
-  function initializeResetButton(resetButton, sliders, numberInputs, checkboxes, selectDescriptions, selectChoices) {
-    resetButton.addEventListener('click', () => {
-      checkboxes.forEach(checkbox => checkbox.checked = false);
-      sliders.forEach(slider => {
-        slider.value = slider.getAttribute('min');
-        slider.dispatchEvent(new Event('input'));
-      });
-      numberInputs.forEach(input => input.value = input.getAttribute('value'));
-      selectDescriptions.forEach(desc => desc.textContent = 'Любой');
-      selectChoices.forEach(choice => choice.classList.toggle('selected', choice.textContent.trim() === 'Любой'));
-    });
-  }
-
-  // Инициализация кнопки раскрытия фильтра
-  function initializeExpandButton(expandButton, filterBtns) {
-    expandButton.addEventListener('click', () => {
-      filterBtns.classList.toggle('active');
-      expandButton.classList.toggle('active');
-    });
-  }
-
-  // Основная инициализация
-  const sliderBlocks = document.querySelectorAll('.slider__blocks');
-  sliderBlocks.forEach(initializeSlider);
-
-  const selectBlocks = document.querySelectorAll('.filter__content-blocks__fields-block.select');
-  selectBlocks.forEach(initializeSelect);
-
-  const labels = document.querySelectorAll('.filter__content-blocks__btns-label');
-  const showMoreButton = document.querySelector('.show-more');
-  initializeShowMore(labels, showMoreButton, 5);
-
-  const resetButton = document.querySelector('.resetting-filter');
-  const sliders = document.querySelectorAll('input[type="range"]');
-  const numberInputs = document.querySelectorAll('input[type="number"]');
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  const selectDescriptions = document.querySelectorAll('.select-descr');
-  const selectChoices = document.querySelectorAll('.select-blocks__choise');
-  initializeResetButton(resetButton, sliders, numberInputs, checkboxes, selectDescriptions, selectChoices);
-
-  const filterBtns = document.querySelector('.filter__content-blocks__btns');
-  const expandButton = document.querySelector('.expand-filter');
-  initializeExpandButton(expandButton, filterBtns);
-});
-
-
-
 
 
 /* Главная */
@@ -608,191 +418,77 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const facilities = document.querySelectorAll('.index-ourFacilities__content-info');
+document.addEventListener('DOMContentLoaded', function() {
+  const article = document.querySelector('.index-ourFacilities__content-info__article');
+  const articleTop = document.querySelector('.index-ourFacilities__content-info__article-top');
+  const expandBtn = document.querySelector('.index-ourFacilities__content-info__btn');
 
-  // Функция для десктопа
-  const handleFacilitiesDesktop = () => {
-    facilities.forEach(facility => {
-      const img = facility.querySelector('.index-ourFacilities__content-info__img');
-      const articleTop = facility.querySelector('.index-ourFacilities__content-info__article-top');
-      const articleBottom = facility.querySelector('.index-ourFacilities__content-info__article-bottom');
-      const button = facility.querySelector('.index-ourFacilities__content-info__btn');
+  if (window.innerWidth <= 768) {
+    // Устанавливаем начальную высоту блока, равную высоте блока articleTop
+    article.style.height = `${articleTop.offsetHeight}px`;
 
-      const calculateHeight = () => {
-        const facilityStyles = getComputedStyle(facility);
-        const paddingTop = parseFloat(facilityStyles.paddingTop);
-        const paddingBottom = parseFloat(facilityStyles.paddingBottom);
-
-        const imgHeight = img.getBoundingClientRect().height;
-        const articleTopHeight = articleTop.getBoundingClientRect().height;
-        const articleBottomHeight = articleBottom.getBoundingClientRect().height;
-
-        facility.style.height = `${imgHeight + articleTopHeight + paddingTop + paddingBottom}px`;
-
-        facility.addEventListener('mouseover', () => {
-          const newMinHeight = imgHeight - articleBottomHeight;
-          img.style.minHeight = `${newMinHeight}px`;
-        });
-
-        facility.addEventListener('mouseout', () => {
-          img.style.minHeight = `${imgHeight}px`;
-        });
-
-        button.addEventListener('click', () => {
-          const isExpanded = facility.classList.toggle('expanded');
-          if (isExpanded) {
-            facility.style.height = `${imgHeight + articleTopHeight + articleBottomHeight + paddingTop + paddingBottom}px`;
-          } else {
-            facility.style.height = `${imgHeight + articleTopHeight + paddingTop + paddingBottom}px`;
-          }
-        });
-      };
-
-      calculateHeight();
-      window.addEventListener('resize', calculateHeight);
+    // Функция для смены высоты блока и текста кнопки при клике
+    expandBtn.addEventListener('click', function() {
+      if (expandBtn.classList.contains('active')) {
+        // Скрыть элементы - вернуть высоту к высоте блока articleTop
+        article.style.height = `${articleTop.offsetHeight}px`;
+        expandBtn.querySelector('p').textContent = 'Раскрыть'; // Меняем текст на "Раскрыть"
+      } else {
+        // Раскрыть элементы - установить высоту на "авто" для раскрытия всех вложенных элементов
+        article.style.height = `${article.scrollHeight}px`;
+        expandBtn.querySelector('p').textContent = 'Свернуть'; // Меняем текст на "Свернуть"
+      }
+      // Переключаем класс active на кнопке
+      expandBtn.classList.toggle('active');
     });
-  };
-
-  // Функция для мобильных устройств
-  const handleFacilitiesMobile = () => {
-    facilities.forEach(facility => {
-      const article = facility.querySelector('.index-ourFacilities__content-info__article');
-      const articleTop = facility.querySelector('.index-ourFacilities__content-info__article-top');
-      const expandBtn = facility.querySelector('.index-ourFacilities__content-info__btn');
-
-      article.style.height = `${articleTop.offsetHeight}px`;
-
-      expandBtn.addEventListener('click', function() {
-        if (expandBtn.classList.contains('active')) {
-          article.style.height = `${articleTop.offsetHeight}px`;
-          expandBtn.querySelector('p').textContent = 'Раскрыть';
-        } else {
-          article.style.height = `${article.scrollHeight}px`;
-          expandBtn.querySelector('p').textContent = 'Свернуть';
-        }
-        expandBtn.classList.toggle('active');
-      });
-    });
-  };
-
-  // Убираем старые обработчики перед переключением
-  const removeEventListeners = () => {
-    facilities.forEach(facility => {
-      const img = facility.querySelector('.index-ourFacilities__content-info__img');
-      const button = facility.querySelector('.index-ourFacilities__content-info__btn');
-
-      img.style.minHeight = '';
-      facility.style.height = '';
-      facility.classList.remove('expanded');
-
-      button.replaceWith(button.cloneNode(true)); // Удаляем все обработчики с кнопки
-    });
-  };
-
-  // Проверка ширины экрана и выбор кода
-  const checkScreenWidth = () => {
-    removeEventListeners();
-    if (window.innerWidth <= 768) {
-      handleFacilitiesMobile();
-    } else {
-      handleFacilitiesDesktop();
-    }
-  };
-
-  checkScreenWidth();
-  window.addEventListener('resize', checkScreenWidth);
+  }
 });
-
-
-/*document.addEventListener('DOMContentLoaded', () => {
-  const facilities = document.querySelectorAll('.index-ourFacilities__content-info__article-bottom__available');
-
-  facilities.forEach(facility => {
-      const items = facility.querySelectorAll('.index-ourFacilities__content-info__article-bottom__available-list__item');
-      const button = facility.querySelector('.available-btn');
-
-      // Initially show the first two items
-      items.forEach((item, index) => {
-          if (index < 2) {
-              item.style.display = 'list-item'; // Show first two items
-          } else {
-              item.style.display = 'none'; // Hide others
-          }
-      });
-
-      // Set initial button text
-      button.innerHTML = `Показать еще <span>${items.length - 2}</span>`;
-
-      button.addEventListener('click', () => {
-          const hiddenItems = Array.from(items).filter(item => item.style.display === 'none');
-          const isExpanded = hiddenItems.length === 0;
-
-          if (isExpanded) {
-              // Collapse: hide all except first two
-              items.forEach((item, index) => {
-                  if (index >= 2) {
-                      item.style.display = 'none';
-                  }
-              });
-              button.innerHTML = `Показать еще <span>${items.length - 2}</span>`;
-          } else {
-              // Expand: show all items
-              items.forEach(item => {
-                  item.style.display = 'list-item';
-              });
-              button.textContent = 'Скрыть';
-          }
-      });
-  });
-});*/
-
 
 document.addEventListener("DOMContentLoaded", function () {
   // Элементы для навигации
-  const btnVideo = document.getElementById("index-btn-stocks-stocks"); // Button for stocks
-  const btnRead = document.getElementById("index-btn--stocks-news"); // Button for news
-  const reviewsVideoBlocks = document.querySelector(".stocks-list"); // Stock content block
-  const reviewsReadBlocks = document.querySelector(".news-list"); // News content block
-  const btnPrev = document.getElementById("index-btn--stocks-prev"); // Previous button
-  const btnNext = document.getElementById("index-btn--stocks-next"); // Next button
+  const btnVideo = document.getElementById("index-btn-stocks-stocks");
+  const btnRead = document.getElementById("index-btn--stocks-news");
+  const reviewsVideoBlocks = document.querySelector(".stocks-list");
+  const reviewsReadBlocks = document.querySelector(".news-list");
+  const btnPrev = document.getElementById("index-btn--stocks-prev");
+  const btnNext = document.getElementById("index-btn--stocks-next");
 
   // Начальные настройки
-  let activeBlock = reviewsVideoBlocks; // By default, show the stocks content block
+  let activeBlock = reviewsVideoBlocks; // По умолчанию показываем reviewsVideoBlocks
 
   // Функция для получения ширины карточки и правого отступа из CSS для текущего активного блока
   function getScrollWidthForActiveBlock() {
-    const firstCard = activeBlock.querySelector("li"); // Assuming cards are <li> elements
+    const firstCard = activeBlock.querySelector("li"); // Предполагаем, что карточки — это дочерние div
     if (firstCard) {
       const style = window.getComputedStyle(firstCard);
-      const cardWidth = parseFloat(style.width); // Read width from CSS
-      const marginRight = parseFloat(style.marginRight); // Read right margin from CSS
+      const cardWidth = parseFloat(style.width); // Считываем ширину из CSS
+      const marginRight = parseFloat(style.marginRight); // Считываем правый отступ из CSS
       return cardWidth + marginRight;
     }
     return 0;
   }
 
-  let scrollWidth = getScrollWidthForActiveBlock(); // Initial scroll width
+  let scrollWidth = getScrollWidthForActiveBlock();
 
   // Функция для переключения видимых блоков
   function toggleActiveBlock(showElement, hideElement, activeButton, inactiveButton) {
-    // Show the specified block and hide the other
+    // Показать нужный блок и скрыть другой
     showElement.style.display = "flex";
     hideElement.style.display = "none";
 
-    // Update active button
+    // Обновляем активную кнопку
     activeButton.classList.add("active");
     inactiveButton.classList.remove("active");
 
-    // Reassign active block for scrolling
+    // Переназначаем активный блок для прокрутки
     activeBlock = showElement;
 
-    // Update scroll width for the new active block
+    // Обновляем ширину прокрутки для нового активного блока
     scrollWidth = getScrollWidthForActiveBlock();
-    activeBlock.scrollTo({ left: 0 }); // Reset scroll position
+    activeBlock.scrollTo({ left: 0 }); // Сброс прокрутки
   }
 
-  // Switch content blocks when buttons "Акции" and "Новости" are clicked
+  // Переключение блоков по клику на кнопки "Посмотреть" и "Прочитать"
   btnVideo.addEventListener("click", () => toggleActiveBlock(reviewsVideoBlocks, reviewsReadBlocks, btnVideo, btnRead));
   btnRead.addEventListener("click", () => toggleActiveBlock(reviewsReadBlocks, reviewsVideoBlocks, btnRead, btnVideo));
 
@@ -816,11 +512,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 400);
   }
 
-  // Event listeners for "previous" and "next" buttons
+  // Обработчики для кнопок "предыдущий" и "следующий"
   btnPrev.addEventListener("click", () => preciseScroll(-1));
   btnNext.addEventListener("click", () => preciseScroll(1));
 
-  // Adding swipe functionality for mobile devices
+  // Добавление свайпа для прокрутки на мобильных устройствах
   let startX = 0;
   let currentX = 0;
 
@@ -836,31 +532,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const isMobile = window.innerWidth < 768;
 
     if (isMobile) {
-      // On smaller screens (< 768px), swipe scrolls content without card alignment
+      // На экранах менее 768px свайп прокручивает контент без привязки к карточке
       const scrollAmount = startX - currentX;
       activeBlock.scrollBy({
         left: scrollAmount,
         behavior: "smooth"
       });
     } else {
-      // On larger screens, scroll is tied to the card width
+      // На больших экранах прокрутка привязана к ширине карточки
       if (startX - currentX > 50) {
-        preciseScroll(1); // Scroll right
+        preciseScroll(1); // Прокрутка вправо
       } else if (currentX - startX > 50) {
-        preciseScroll(-1); // Scroll left
+        preciseScroll(-1); // Прокрутка влево
       }
     }
   });
 
-  // Update scroll width on window resize
+  // Обновляем ширину прокрутки при изменении размеров окна
   window.addEventListener("resize", () => {
     scrollWidth = getScrollWidthForActiveBlock();
   });
 });
-
-
-
-
 
 
 
