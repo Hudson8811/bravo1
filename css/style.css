@@ -1171,7 +1171,8 @@ button {
         top: 0
     }
 
-    .header__content a, .header__content-nav button {
+    .header__content a,
+    .header__content-nav button {
         font-size: 14px
     }
 
@@ -1224,7 +1225,7 @@ button {
 
     .header__content-nav__list-item.object .object-list__item a {
         padding: 5px 0 0;
-		color:#808080;
+        color: #808080;
     }
 
     .header__content-tel {
@@ -1277,9 +1278,9 @@ button {
     grid-template-columns: repeat(2, minmax(50px, 1fr));
     grid-gap: 28px 150px;
     width: fit-content;
-	grid-auto-flow: column;
+    grid-auto-flow: column;
     grid-template-rows: repeat(var(--break-row), 1fr);
-	--break-row: 2;
+    --break-row: 2;
 }
 
 .footer__content-top__nav-list__item.object {
@@ -1382,8 +1383,8 @@ button {
     color: hsla(0, 0%, 100%, .8)
 }
 
-.footer__content-bottom p svg{
-	margin-left:5px;
+.footer__content-bottom p svg {
+    margin-left: 5px;
 }
 
 .footer__content-bottom a {
@@ -1724,30 +1725,31 @@ button {
 .index-hero__content-list__item:nth-child(1) .index-hero__content-list__item-img svg {
     height: 350px
 }
+
 @media(min-width: 1025px) {
-.index-hero__content-list__item:hover .index-hero__content-list__item-img .index-hero__content-list__item-img__rect1 {
-    -webkit-transform: translateY(-10px);
-    -ms-transform: translateY(-10px);
-    transform: translateY(-10px)
-}
+    .index-hero__content-list__item:hover .index-hero__content-list__item-img .index-hero__content-list__item-img__rect1 {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px)
+    }
 
-.index-hero__content-list__item:hover .index-hero__content-list__item-img .index-hero__content-list__item-img__path {
-    -webkit-transform: translateY(-10px);
-    -ms-transform: translateY(-10px);
-    transform: translateY(-10px)
-}
+    .index-hero__content-list__item:hover .index-hero__content-list__item-img .index-hero__content-list__item-img__path {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px)
+    }
 
-.index-hero__content-list__item:hover .index-hero__content-list__item-img .index-hero__content-list__item-img__rect2 {
-    -webkit-transform: translateY(-30px);
-    -ms-transform: translateY(-30px);
-    transform: translateY(-30px)
-}
+    .index-hero__content-list__item:hover .index-hero__content-list__item-img .index-hero__content-list__item-img__rect2 {
+        -webkit-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        transform: translateY(-30px)
+    }
 
-.index-hero__content-list__item:hover:nth-child(2) .index-hero__content-list__item-img {
-    -webkit-transform: rotate(10deg) scale(110%) translateY(-10px);
-    -ms-transform: rotate(10deg) scale(110%) translateY(-10px);
-    transform: rotate(10deg) scale(110%) translateY(-10px)
-}
+    .index-hero__content-list__item:hover:nth-child(2) .index-hero__content-list__item-img {
+        -webkit-transform: rotate(10deg) scale(110%) translateY(-10px);
+        -ms-transform: rotate(10deg) scale(110%) translateY(-10px);
+        transform: rotate(10deg) scale(110%) translateY(-10px)
+    }
 }
 
 .index-ourFacilities {
@@ -2030,8 +2032,8 @@ button {
     bottom: 0;
     right: 0;
     transition: all .3s ease-in-out;
-	background-size:384px auto;
-	background-position:left top;
+    background-size: 384px auto;
+    background-position: left top;
 }
 
 .index-about__content-cards__item:hover::after {
@@ -2096,6 +2098,7 @@ button {
     position: relative;
     padding: 12px;
     min-width: 336px;
+    max-width: 336px;
     overflow: hidden;
     border-radius: 12px;
     background-color: var(--seryy)
@@ -2494,7 +2497,8 @@ button {
     color: #000
 }
 
-.stocksAndNews-page__content-info p span {
+.stocksAndNews-page__content-info p span,
+.stocksAndNews-page__content-info p a {
     font-weight: 500
 }
 
@@ -4084,5 +4088,3 @@ main {
         min-height: 100%;
     }
 }
-
-
