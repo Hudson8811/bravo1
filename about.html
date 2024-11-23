@@ -186,7 +186,7 @@
             <h1>
               Строим <br> новые районы <br> для тысяч семей
             </h1>
-            <a class="btn-global2" id="pop-up-callback-open">
+            <a class="btn-global2 js-pop-up-callback-open" id="pop-up-callback-open">
               Связаться с нами
             </a>
           </div>
@@ -209,7 +209,7 @@
                 Bravo – молодой, амбициозный девелопер на Юге России, основан в 2024 году.
               </p>
               <p>
-                Старт проекта в г. Анапа запланирован в октябре 2024. Девелопер Bravo является дочерней компанией ГК «АФК».  В портфеле которого более 200 тысяч квадратных метров жилья, тысячи довольных жителей в Краснодаре. Компания специализируется на комплексном освоении территорий — строя микрорайоны, обеспеченные коммерческой, социальной, инженерной инфраструктурой.
+                Старт проекта в г. Анапа запланирован в октябре 2024. Девелопер Bravo является дочерней компанией ГК «АФК». В портфеле которого более 200 тысяч квадратных метров жилья, тысячи довольных жителей в Краснодаре. Компания специализируется на комплексном освоении территорий — строя микрорайоны, обеспеченные коммерческой, социальной, инженерной инфраструктурой.
               </p>
             </div>
           </div>
@@ -332,9 +332,10 @@
     </div>
   </footer>
 
-  <div class="pop-up-callback" id="pop-up-callback">
+  
+  <div class="pop-up-callback js-popup js-popup-callback"  id="pop-up-callback">
     <div class="pop-up-callback__content">
-      <button id="pop-up-callback-close" class="pop-up-callback-close">
+      <button id="pop-up-callback-close" class="pop-up-callback-close js-popup-closer">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.3">
             <rect x="1.01172" width="17.1616" height="1.43013" rx="0.715067" transform="rotate(45 1.01172 0)" fill="black" />
@@ -350,19 +351,33 @@
           Введите свой номер телефона, <br> и мы обязательно с вами свяжемся
         </p>
       </div>
-      <form action="#" class="form-global pop-up-callback__content-form">
-        <label for="pop-up-callback-tel">
-          <input type="tel" name="pop-up-callback-tel" id="pop-up-callback-tel" placeholder="Телефон" >
+      <form action="#" class="form-global pop-up-callback__content-form js-ajax-form">
+        <label>
+          <input type="tel" name="tel" class="js-form__tel-input" id="pop-up-callback-tel" placeholder="Телефон" >
         </label>
-        <button class="btn-global">
+        <button class="btn-global" type="submit">
           Заказать звонок
         </button>
         <p>
           Нажимая на кнопку “Заказать звонок”, вы принимаете <a href="#">политику конфиденциальности</a> и даете согласие на обработку персональных данных
         </p>
       </form>
-      <!-- Для отображения data-sent приписать active-->
-      <div class="data-sent">
+    </div>
+  </div>
+   
+
+  <div class="pop-up-callback pop-up-callback--successfull js-popup js-popup-successfull-send">
+    <div class="pop-up-callback__content">
+      <button id="pop-up-callback-close" class="pop-up-callback-close  js-popup-closer">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.3">
+            <rect x="1.01172" width="17.1616" height="1.43013" rx="0.715067" transform="rotate(45 1.01172 0)" fill="black" />
+            <rect width="17.1616" height="1.43013" rx="0.715067" transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 1.01172 13.1465)" fill="black" />
+          </g>
+        </svg>
+      </button> 
+      
+      <div class="data-sent active">
         <h3 class="section-title">
           Данные успешно отправлены
         </h3>
@@ -374,7 +389,9 @@
       </div>
     </div>
   </div>
-
+  
+  
+  <script src="js/fetch.umd.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>
 </html>

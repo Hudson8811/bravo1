@@ -282,18 +282,18 @@
             Если вы не нашли интересующую вас информацию, задайте вопрос нашим специалистам
           </p>
         </div>
-        <form action="#" class="contacts-feedback__content-form">
+        <form action="#" class="contacts-feedback__content-form  js-ajax-form">
           <div class="contacts-feedback__content-form__fields">
-            <label for="feedbackName">
-              <input type="text" id="contacts-feedback-name" name="feedbackName" placeholder="Имя">
+            <label>
+              <input type="text" id="contacts-feedback-name"  class="js-form__name-input" name="name" placeholder="Имя">
             </label>
-            <label for="feedbackTel">
-              <input type="tel" id="contacts-feedback-tel" name="feedbackTel" placeholder="Телефон">
+            <label>
+              <input type="tel" id="contacts-feedback-tel"  class="js-form__tel-input"  name="tel" placeholder="Телефон">
             </label>
-            <textarea name="feedbackText" id="contacts-feedback-text" placeholder="Ваш вопрос"></textarea>
+            <textarea name="comment" id="contacts-feedback-text" placeholder="Ваш вопрос"></textarea>
           </div>
           <div class="contacts-feedback__content-form__block">
-            <button class="btn-global">
+            <button class="btn-global"   type="submit">
               Отправить
             </button>
             <p>
@@ -434,10 +434,13 @@
   </footer>
 
   <!-- Для отображения pop-up блоку с классом pop-up-callback приписать active-->
-
-  <div class="pop-up-callback">
+ 
+  
+  
+  
+  <div class="pop-up-callback js-popup js-popup-callback"  id="pop-up-callback">
     <div class="pop-up-callback__content">
-      <button id="pop-up-callback-close" class="pop-up-callback-close">
+      <button id="pop-up-callback-close" class="pop-up-callback-close js-popup-closer">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.3">
             <rect x="1.01172" width="17.1616" height="1.43013" rx="0.715067" transform="rotate(45 1.01172 0)" fill="black" />
@@ -453,19 +456,33 @@
           Введите свой номер телефона, <br> и мы обязательно с вами свяжемся
         </p>
       </div>
-      <form action="#" class="form-global pop-up-callback__content-form">
-        <label for="pop-up-callback-tel">
-          <input type="tel" name="pop-up-callback-tel" id="pop-up-callback-tel" placeholder="Телефон" >
+      <form action="#" class="form-global pop-up-callback__content-form js-ajax-form">
+        <label>
+          <input type="tel" name="tel" class="js-form__tel-input" id="pop-up-callback-tel" placeholder="Телефон" >
         </label>
-        <button class="btn-global">
+        <button class="btn-global" type="submit">
           Заказать звонок
         </button>
         <p>
           Нажимая на кнопку “Заказать звонок”, вы принимаете <a href="#">политику конфиденциальности</a> и даете согласие на обработку персональных данных
         </p>
       </form>
-      <!-- Для отображения data-sent приписать active-->
-      <div class="data-sent">
+    </div>
+  </div>
+   
+
+  <div class="pop-up-callback pop-up-callback--successfull js-popup js-popup-successfull-send">
+    <div class="pop-up-callback__content">
+      <button id="pop-up-callback-close" class="pop-up-callback-close  js-popup-closer">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.3">
+            <rect x="1.01172" width="17.1616" height="1.43013" rx="0.715067" transform="rotate(45 1.01172 0)" fill="black" />
+            <rect width="17.1616" height="1.43013" rx="0.715067" transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 1.01172 13.1465)" fill="black" />
+          </g>
+        </svg>
+      </button> 
+      
+      <div class="data-sent active">
         <h3 class="section-title">
           Данные успешно отправлены
         </h3>
@@ -478,6 +495,7 @@
     </div>
   </div>
 
+  <script src="js/fetch.umd.min.js"></script>
   <script src="js/main.min.js"></script>
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=ВАШ_КЛЮЧ_API" type="text/javascript"></script>
 </body>

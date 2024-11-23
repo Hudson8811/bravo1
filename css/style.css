@@ -2970,11 +2970,15 @@ button {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .5);
-    z-index: 5;
+    z-index: 99;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease-in-out
+}
+
+.pop-up-callback--successfull .pop-up-callback__content{
+    height: 395px;
 }
 
 .pop-up-callback.active {
@@ -3048,15 +3052,11 @@ button {
     height: 100%;
     padding: 36px;
     background-color: var(--white);
-    pointer-events: none;
-    opacity: 0;
     visibility: hidden;
     transition: all .3s ease-in-out
 }
 
 .pop-up-callback__content .data-sent.active {
-    pointer-events: all;
-    opacity: 1;
     visibility: visible
 }
 
@@ -3970,6 +3970,11 @@ button {
         padding: 13px 31px
     }
 
+    
+    .pop-up-callback--successfull .pop-up-callback__content{
+        height: 300px;
+    }
+    
     .pop-up-callback__content {
         margin-top: 40%;
         padding: 26px 15px;
@@ -3990,7 +3995,7 @@ button {
     }
 
     .pop-up-callback__content-info p {
-        font-size: 13px
+        font-size: 13pxa
     }
 
     .pop-up-callback__content-form {
@@ -4085,4 +4090,46 @@ main {
     }
 }
 
+.js-ajax-form{
+    transition-duration: .3s;
+}
 
+.form-submit-progress {
+    pointer-events: none;
+    opacity: .7;
+} 
+
+.form-submit-progress [type="submit"]{
+    animation: pulse 1s infinite; 
+    animation-direction: alternate;
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}
