@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ymaps.ready(function () {
       // Создаем карту
       var myMap = new ymaps.Map("map", {
-          center: [44.791303, 37.402264],
+          center: [44.801736, 37.416887],
           zoom: 16
       });
 

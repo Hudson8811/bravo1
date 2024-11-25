@@ -2300,6 +2300,8 @@ button {
 .stocksAndNews-hero__content-list__item {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
     padding: 12px;
     border-radius: 12px;
     background-color: var(--white)
@@ -2320,6 +2322,7 @@ button {
 .stocksAndNews-hero__content-list__item-img {
     overflow: hidden;
     height: 377px;
+    flex-shrink: 0;
     border-radius: 12px;
     margin-bottom: 10px
 }
@@ -2330,7 +2333,10 @@ button {
 }
 
 .stocksAndNews-hero__content-list__item-article {
-    padding: 16px 24px
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    flex: 1 1 auto;
 }
 
 .stocksAndNews-hero__content-list__item-article h3 {
@@ -2350,7 +2356,9 @@ button {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    gap: 24px
+    gap: 24px;
+    margin-top: auto;
+
 }
 
 .stocksAndNews-hero__content-list__item-article__bottom p {
@@ -2569,7 +2577,7 @@ button {
 }
 
 .stocksAndNews-feedback__content-form__fields label input {
-    padding: 16px 24px;
+    padding: 14px 24px;
     width: 255px;
     border-radius: 5px;
     font-weight: 400;
@@ -2615,7 +2623,7 @@ button {
 }
 
 .stocksAndNews-feedback__content-form__fields button {
-    padding: 15px;
+    padding: 16px;
     width: 200px
 }
 
@@ -2719,7 +2727,7 @@ button {
     border-radius: 12px
 }
 
-.contacts-map__content .map-marker {
+.map-marker {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2732,7 +2740,7 @@ button {
     align-items: center
 }
 
-.contacts-map__content .map-marker-icon {
+.map-marker-icon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2745,7 +2753,7 @@ button {
     background-color: var(--yellow)
 }
 
-.contacts-map__content .map-marker-text {
+.map-marker-text {
     margin-top: 10px;
     text-wrap: nowrap;
     padding: 5px 10px;
@@ -2814,7 +2822,7 @@ button {
 }
 
 .contacts-feedback__content-form__fields label input {
-    padding: 16px 24px;
+    padding: 14px 24px;
     width: 100%;
     border-radius: 5px;
     font-weight: 400;
@@ -2919,7 +2927,7 @@ button {
 }
 
 .contacts-feedback__content-form__block button {
-    padding: 15px;
+    padding: 16px;
     width: 100%;
     margin-bottom: 27px
 }
@@ -2981,7 +2989,7 @@ button {
     transition: all .3s ease-in-out
 }
 
-.pop-up-callback--successfull .pop-up-callback__content{
+.pop-up-callback--successfull .pop-up-callback__content {
     height: 395px;
 }
 
@@ -3738,7 +3746,8 @@ button {
     }
 
     .stocksAndNews-feedback__content-info h2 {
-        margin-bottom: 15px
+        margin-bottom: 15px;
+        font-weight: 600;
     }
 
     .stocksAndNews-feedback__content-info p {
@@ -3797,7 +3806,8 @@ button {
     }
 
     .contacts-hero__content h2 {
-        margin-bottom: 18px
+        margin-bottom: 18px;
+        font-weight: 600;
     }
 
     .contacts-hero__content-list {
@@ -3870,7 +3880,8 @@ button {
     }
 
     .contacts-feedback__content-info h2 {
-        margin-bottom: 14px
+        margin-bottom: 14px;
+        font-weight: 600;
     }
 
     .contacts-feedback__content-info p {
@@ -3974,11 +3985,11 @@ button {
         padding: 13px 31px
     }
 
-    
-    .pop-up-callback--successfull .pop-up-callback__content{
+
+    .pop-up-callback--successfull .pop-up-callback__content {
         height: 300px;
     }
-    
+
     .pop-up-callback__content {
         margin-top: 40%;
         padding: 26px 15px;
@@ -4013,6 +4024,11 @@ button {
     .pop-up-callback__content .data-sent-button {
         width: 100px;
         height: 100px
+    }
+
+    .stocksAndNews-hero__content-top .section-title,
+    .about-second__content-info .section-title {
+        font-weight: 600;
     }
 }
 
@@ -4094,17 +4110,17 @@ main {
     }
 }
 
-.js-ajax-form{
+.js-ajax-form {
     transition-duration: .3s;
 }
 
 .form-submit-progress {
     pointer-events: none;
     opacity: .7;
-} 
+}
 
-.form-submit-progress [type="submit"]{
-    animation: pulse 1s infinite; 
+.form-submit-progress [type="submit"] {
+    animation: pulse 1s infinite;
     animation-direction: alternate;
     -webkit-animation-name: pulse;
     animation-name: pulse;
