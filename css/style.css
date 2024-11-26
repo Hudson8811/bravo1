@@ -926,11 +926,19 @@ button {
 }
 
 .header {
-    position: relative;
+    position: fixed;
     padding: 30px 0;
     background-color: var(--white);
-    z-index: 2
+    z-index: 2;
+	left:0;
+	top:0;
+	width:100%
 }
+
+.header.header--fixed{
+	box-shadow: 0px 1px 3px 0px rgba(34, 60, 80, 0.05);
+}
+
 
 .header-mobile {
     display: none
@@ -4199,6 +4207,19 @@ body {
 
 main {
     flex: 1 0 auto;
+	padding-top:95px
+}
+
+@media (max-width: 1024px) {
+    main {
+		padding-top:152px
+	}
+}
+
+@media (max-width: 768px) {
+    main {
+		padding-top:51px
+	}
 }
 
 .footer {

@@ -742,8 +742,13 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
-
-
-
-
+document.addEventListener('DOMContentLoaded', () => {
+	var element = document.getElementById('header');
+	window.addEventListener('scroll', function () {
+	   if (window.scrollY > 100) {
+			element.classList.add("header--fixed");
+		} else {
+			element.classList.remove("shadow");
+		}
+	});
+});
