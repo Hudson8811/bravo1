@@ -3088,6 +3088,76 @@ button {
     background-color: var(--seryy)
 }
 
+.cookie {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    column-gap: 20px;
+    width: 470px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 6px;
+    z-index: 99;
+    box-shadow: 0px 8px 16px 0px #00000014;
+}
+
+.cookie__text {
+    flex-basis: 100%;
+    color: #3E2F2F;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.3em;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s linear;
+}
+
+.cookie__text.active {
+    margin-bottom: 20px;
+    max-height: 70px;
+}
+
+.cookie__title {
+    flex: 0 1 calc(100% - 151px);
+    color: #3E2F2F;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2em;
+}
+
+.cookie__more {
+    opacity: 0.5;
+    text-decoration: underline;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    color: #3E2F2F;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2em;
+
+}
+
+.cookie__accept {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height: 37px;
+    width: 130px;
+    flex: 0 0 130px;
+    background-color: #FED400;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1em;
+    color: #292020;
+}
+
+
 @media(max-width: 1245px) {
     .index-hero__content {
         grid-template-columns: repeat(2, 1fr)
@@ -4072,6 +4142,37 @@ button {
 
     .stocksAndNews-hero__content-list__item-article h3 {
         min-height: 57px
+    }
+
+    .cookie {
+        width: 305px;
+        padding: 10px;
+    }
+
+    .cookie__text {
+        flex-basis: 100%;
+        color: #3E2F2F;
+        font-size: 10px;
+    }
+
+    .cookie__text.active {
+        margin-bottom: 12px;
+    }
+
+    .cookie__title {
+        flex: 0 1 calc(100% - 120px);
+        font-size: 11px;
+    }
+
+    .cookie__more {
+        font-size: 11px;
+    }
+
+    .cookie__accept {
+        height: 31px;
+        width: 130px;
+        flex: 0 0 97px;
+        font-size: 11px;
     }
 }
 

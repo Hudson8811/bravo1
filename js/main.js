@@ -604,64 +604,97 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function cookieInit() {
+  const cookieMessage = document.querySelector('[data-js="cookie"]');
+
+  if(!cookieMessage) return
+
+  const cookieBtn = cookieMessage.querySelector('[data-js="cookieBtn"]');
+  const cookieMore = cookieMessage.querySelector('[data-js="cookieMore"]');
+  const cookieText = cookieMessage.querySelector('[data-js="cookieText"]');
+  const cookieName = 'cookie_policy';
+
+  let currentCookieValue = document.cookie.match(new RegExp("(?:^|; )" + cookieName.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+
+  if (!currentCookieValue) {
+      cookieMessage.style.display = 'flex';
+  }
+
+  cookieMore.addEventListener('click', function () {
+    cookieText.classList.add('active');
+    cookieMore.style.display = 'none';
+});
+
+  cookieBtn.addEventListener('click', function () {
+      document.cookie = `${cookieName}=true`
+      cookieMessage.style.display = 'none';
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
-  ymaps.ready(function () {
-      // Создаем карту
-      var myMap = new ymaps.Map("map", {
-          center: [44.801736, 37.416887],
-          zoom: 16
-      });
+  cookieInit()
+})
 
-      // Контейнер для меток
-      var markers = [];
+document.addEventListener("DOMContentLoaded", function () {
 
-      // Данные меток из HTML
-      var markerData = document.getElementById("marker-data").children;
-      Array.from(markerData).forEach((item, index) => {
-          var coords = JSON.parse(item.getAttribute("data-coords"));
-          var title = item.getAttribute("data-title");
-
-          // HTML-содержимое для кастомной метки с разделением на иконку и текст
-          var markerContent = `
-              <div class="map-marker">
-                  <div class="map-marker-icon">
-                      <svg width="19" height="20" viewBox="0 0 19 20" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 0V5.25418L5.23193 0H0Z" />
-                          <path d="M0 13.0872L12.6456 0.389617C11.7922 0.133588 10.7978 0 9.66235 0H9.27275L0 9.30983V13.0872Z" />
-                          <path d="M17.4137 10.9276C17.0056 10.0594 16.3822 9.35064 15.551 8.80519C16.2746 7.85157 16.6382 6.73469 16.6382 5.46567C16.6382 4.69016 16.4972 3.9666 16.2152 3.2987C15.9889 2.75695 15.6549 2.27457 15.2319 1.85156L0 17.1429V20H11.0501C12.2375 20 13.269 19.8553 14.1447 19.5733C15.0204 19.2876 15.744 18.8794 16.3191 18.3451C16.8943 17.8108 17.321 17.1688 17.603 16.4193C17.885 15.6697 18.026 14.8274 18.026 13.8998C18.026 12.7903 17.8219 11.8033 17.4137 10.9313" />
-                      </svg>
-                  </div>
-                  <div class="map-marker-text">${title}</div>
-              </div>`;
-
-          // Метка с HTML-содержимым
-          var marker = new ymaps.Placemark(coords, {
-              hintContent: title,
-              balloonContent: title
-          }, {
-              iconLayout: 'default#imageWithContent',
-              iconContentLayout: ymaps.templateLayoutFactory.createClass(markerContent),
-              iconImageSize: [30, 30],
-              iconImageOffset: [-15, -30]
-          });
-
-          // Добовление метки на карту и в массив
-          myMap.geoObjects.add(marker);
-          markers.push(marker);
-      });
-
-      // Обработчики для кнопок
-      document.querySelectorAll(".contacts-hero__content-list__item-btn").forEach(button => {
-          button.addEventListener("click", function () {
-              var index = this.getAttribute("data-marker");
-              var marker = markers[index];
-              if (marker) {
-                  myMap.panTo(marker.geometry.getCoordinates(), { flying: true });
-              }
-          });
-      });
-  });
+  if(ymaps) {
+    ymaps.ready(function () {
+        // Создаем карту
+        var myMap = new ymaps.Map("map", {
+            center: [44.801736, 37.416887],
+            zoom: 16
+        });
+  
+        // Контейнер для меток
+        var markers = [];
+  
+        // Данные меток из HTML
+        var markerData = document.getElementById("marker-data").children;
+        Array.from(markerData).forEach((item, index) => {
+            var coords = JSON.parse(item.getAttribute("data-coords"));
+            var title = item.getAttribute("data-title");
+  
+            // HTML-содержимое для кастомной метки с разделением на иконку и текст
+            var markerContent = `
+                <div class="map-marker">
+                    <div class="map-marker-icon">
+                        <svg width="19" height="20" viewBox="0 0 19 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0V5.25418L5.23193 0H0Z" />
+                            <path d="M0 13.0872L12.6456 0.389617C11.7922 0.133588 10.7978 0 9.66235 0H9.27275L0 9.30983V13.0872Z" />
+                            <path d="M17.4137 10.9276C17.0056 10.0594 16.3822 9.35064 15.551 8.80519C16.2746 7.85157 16.6382 6.73469 16.6382 5.46567C16.6382 4.69016 16.4972 3.9666 16.2152 3.2987C15.9889 2.75695 15.6549 2.27457 15.2319 1.85156L0 17.1429V20H11.0501C12.2375 20 13.269 19.8553 14.1447 19.5733C15.0204 19.2876 15.744 18.8794 16.3191 18.3451C16.8943 17.8108 17.321 17.1688 17.603 16.4193C17.885 15.6697 18.026 14.8274 18.026 13.8998C18.026 12.7903 17.8219 11.8033 17.4137 10.9313" />
+                        </svg>
+                    </div>
+                    <div class="map-marker-text">${title}</div>
+                </div>`;
+  
+            // Метка с HTML-содержимым
+            var marker = new ymaps.Placemark(coords, {
+                hintContent: title,
+                balloonContent: title
+            }, {
+                iconLayout: 'default#imageWithContent',
+                iconContentLayout: ymaps.templateLayoutFactory.createClass(markerContent),
+                iconImageSize: [30, 30],
+                iconImageOffset: [-15, -30]
+            });
+  
+            // Добовление метки на карту и в массив
+            myMap.geoObjects.add(marker);
+            markers.push(marker);
+        });
+  
+        // Обработчики для кнопок
+        document.querySelectorAll(".contacts-hero__content-list__item-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                var index = this.getAttribute("data-marker");
+                var marker = markers[index];
+                if (marker) {
+                    myMap.panTo(marker.geometry.getCoordinates(), { flying: true });
+                }
+            });
+        });
+    });
+  }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
